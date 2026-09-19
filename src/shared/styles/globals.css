@@ -1,0 +1,232 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Local fonts from sources/apps/web/public/fonts */
+@font-face {
+  font-family: "lexendregular";
+  src:
+    url("/fonts/lexend-variablefont_wght-webfont.woff2") format("woff2"),
+    url("/fonts/lexend-variablefont_wght-webfont.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "abril_fatfaceregular";
+  src:
+    url("/fonts/abrilfatface-regular-webfont.woff2") format("woff2"),
+    url("/fonts/abrilfatface-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-brand-green: var(--brand-green);
+  --color-brand-orange: var(--brand-orange);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans:
+    "lexendregular", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif;
+  --font-serif: "abril_fatfaceregular", serif;
+}
+
+/* Celluloid brand → shadcn tokens (from apps/web mui.css + celluloid-theme-options) */
+:root {
+  color-scheme: light;
+  --radius: 0.5rem;
+
+  --background: rgba(249, 250, 252, 0.72);
+  --foreground: #121828;
+
+  --card: rgba(255, 255, 255, 0.78);
+  --card-foreground: #121828;
+
+  --popover: #ffffff;
+  --popover-foreground: #121828;
+
+  --primary: #557cff;
+  --primary-foreground: #ffffff;
+
+  --secondary: #ff6b68;
+  --secondary-foreground: #ffffff;
+
+  --muted: #f3f4f6;
+  --muted-foreground: #65748b;
+
+  --accent: rgba(85, 124, 255, 0.12);
+  --accent-foreground: #3832a0;
+
+  --destructive: #d14343;
+  --destructive-foreground: #ffffff;
+
+  --border: #e6e8f0;
+  --input: #e6e8f0;
+  --ring: #557cff;
+
+  --success: #14b8a6;
+  --warning: #ffb020;
+  --brand-green: #c2ccab;
+  --brand-orange: #ffe7db;
+
+  --chart-1: #557cff;
+  --chart-2: #14b8a6;
+  --chart-3: #ff6b68;
+  --chart-4: #ffb020;
+  --chart-5: #828df8;
+
+  --sidebar: #f9fafc;
+  --sidebar-foreground: #121828;
+  --sidebar-primary: #557cff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(85, 124, 255, 0.12);
+  --sidebar-accent-foreground: #3832a0;
+  --sidebar-border: #e6e8f0;
+  --sidebar-ring: #557cff;
+
+  /* Legacy aliases (kept for gradual migration) */
+  --color-primary: #557cff;
+  --color-primary-light: #828df8;
+  --color-primary-dark: #3832a0;
+  --color-primary-contrast: #ffffff;
+  --color-secondary: #ff6b68;
+  --color-success: #14b8a6;
+  --color-warning: #ffb020;
+  --color-error: #d14343;
+  --color-text-primary: #121828;
+  --color-text-secondary: #65748b;
+  --color-background-default: #f9fafc;
+  --color-background-paper: #ffffff;
+  --color-divider: #e6e8f0;
+  --color-brand-green: #c2ccab;
+  --color-brand-orange: #ffe7db;
+  --bg: var(--background);
+  --bg-elevated: var(--card);
+  --ink: var(--foreground);
+  --titlebar-height: 44px;
+  --font-family-main: var(--font-sans);
+  --font-serif: "abril_fatfaceregular", serif;
+  --shadow-card: 0 1px 2px rgba(18, 24, 40, 0.04), 0 4px 16px rgba(18, 24, 40, 0.06);
+}
+
+.dark {
+  --background: #121828;
+  --foreground: #f9fafc;
+  --card: #1f2937;
+  --card-foreground: #f9fafc;
+  --popover: #1f2937;
+  --popover-foreground: #f9fafc;
+  --primary: #828df8;
+  --primary-foreground: #121828;
+  --secondary: #ff6b68;
+  --secondary-foreground: #ffffff;
+  --muted: #374151;
+  --muted-foreground: #9ca3af;
+  --accent: rgba(85, 124, 255, 0.2);
+  --accent-foreground: #f9fafc;
+  --destructive: #da6868;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #828df8;
+  --sidebar: #1f2937;
+  --sidebar-foreground: #f9fafc;
+  --sidebar-primary: #828df8;
+  --sidebar-primary-foreground: #121828;
+  --sidebar-accent: rgba(85, 124, 255, 0.2);
+  --sidebar-accent-foreground: #f9fafc;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #828df8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    background: transparent;
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    margin: 0;
+    font-family: var(--font-sans);
+    /* Translucent Celluloid wash over native window blur */
+    background-color: var(--background);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+.titlebar-drag {
+  height: var(--titlebar-height);
+  width: 100%;
+  flex-shrink: 0;
+  app-region: drag;
+}
