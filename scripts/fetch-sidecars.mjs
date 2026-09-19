@@ -99,6 +99,20 @@ async function downloadGunzip(url, dest) {
   await pipeline(res.body, createGunzip(), createWriteStream(dest));
 }
 
+function moveFile(from, to) {
+  try {
+    renameSync(from, to);
+  } catch (error) {
+    // Windows CI often uses TEMP on C: and the workspace on D: — rename fails with EXDEV.
+    if (error && typeof error === "object" && "code" in error && error.code === "EXDEV") {
+      copyFileSync(from, to);
+      unlinkSync(from);
+      return;
+    }
+    throw error;
+  }
+}
+
 function ensureExecutable(filePath) {
   if (!isWindows) {
     chmodSync(filePath, 0o755);
@@ -138,7 +152,7 @@ async function ensureBinary(name, urlMap, { gzip = false } = {}) {
     } else {
       await download(url, tmp);
     }
-    renameSync(tmp, dest);
+    moveFile(tmp, dest);
     ensureExecutable(dest);
     console.log(`✓ ${path.basename(dest)}`);
     return dest;
