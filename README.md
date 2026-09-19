@@ -8,7 +8,6 @@ Celluloid Desktop app to work with videos.
 - Tailwind CSS
 - Feature-driven frontend (`src/app`, `src/features`, `src/shared`)
 - Biome (lint/format)
-- Bundled [yt-dlp](https://github.com/yt-dlp/yt-dlp) + ffmpeg sidecars
 
 ## Prerequisites
 
@@ -32,10 +31,5 @@ pnpm sidecars:fetch -- --from-path
 - `pnpm lingui:extract` — update `en` / `fr` catalogs after changing UI strings
 - `pnpm typecheck` / `pnpm lint` / `pnpm format` / `pnpm check`
 
-## Usage
 
-1. Run `pnpm tauri dev`
-2. Paste a YouTube URL and click **Fetch**
-3. Choose quality and a download folder
-4. Click **Download** — progress appears in the queue
 

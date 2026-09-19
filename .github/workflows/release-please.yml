@@ -15,5 +15,9 @@ jobs:
     steps:
       - uses: googleapis/release-please-action@v4
         with:
+          # PAT (not GITHUB_TOKEN) so the published release event can trigger Build Binaries.
+          # Create a classic PAT with `repo` scope (or fine-grained: Contents + Pull requests
+          # on this repo) and add it as secret RELEASE_PLEASE_TOKEN.
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
