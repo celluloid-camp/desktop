@@ -1,0 +1,235 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "{completedCount, plural, one {Remove # completed item from this list. Files on disk stay untouched.} other {Remove # completed items from this list. Files on disk stay untouched.}}"
+msgstr "{completedCount, plural, one {Remove # completed item from this list. Files on disk stay untouched.} other {Remove # completed items from this list. Files on disk stay untouched.}}"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "{detail} Check the URL or try another browser session."
+msgstr "{detail} Check the URL or try another browser session."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "{detail} Try another quality or refresh your browser session."
+msgstr "{detail} Try another quality or refresh your browser session."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Added to Downloads below."
+msgstr "Added to Downloads below."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Best available"
+msgstr "Best available"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Best Available (Auto)"
+msgstr "Best Available (Auto)"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Change Folder"
+msgstr "Change Folder"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Choose a download folder, then start the download."
+msgstr "Choose a download folder, then start the download."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Choose a folder before starting the download."
+msgstr "Choose a folder before starting the download."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Choose Download Folder"
+msgstr "Choose Download Folder"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Choose Folder"
+msgstr "Choose Folder"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Clear Completed"
+msgstr "Clear Completed"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Clear Completed Downloads?"
+msgstr "Clear Completed Downloads?"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Completed"
+msgstr "Completed"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Contacting YouTube…"
+msgstr "Contacting YouTube…"
+
+#. placeholder {0}: missingDeps.join(" and ")
+#: src/app/App.tsx
+msgid "Could not find {0}. Run <0>pnpm sidecars:fetch</0> (or install them on PATH as a fallback)."
+msgstr "Could not find {0}. Run <0>pnpm sidecars:fetch</0> (or install them on PATH as a fallback)."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Download quality"
+msgstr "Download quality"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Downloading"
+msgstr "Downloading"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Downloads"
+msgstr "Downloads"
+
+#. placeholder {0}: item.eta
+#: src/features/download/components/DownloadQueue.tsx
+msgid "ETA {0}"
+msgstr "ETA {0}"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Failed"
+msgstr "Failed"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Fetch Video"
+msgstr "Fetch Video"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Fetched videos appear here while they download."
+msgstr "Fetched videos appear here while they download."
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Fetching"
+msgstr "Fetching"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Fetching…"
+msgstr "Fetching…"
+
+#: src/app/App.tsx
+msgid "Missing Sidecars"
+msgstr "Missing Sidecars"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "No Cookies (Anonymous)"
+msgstr "No Cookies (Anonymous)"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "No logged-in YouTube sessions found. Sign in to YouTube in Chrome, Safari, Firefox, or another supported browser, then refresh."
+msgstr "No logged-in YouTube sessions found. Sign in to YouTube in Chrome, Safari, Firefox, or another supported browser, then refresh."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "No thumbnail"
+msgstr "No thumbnail"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Open Folder"
+msgstr "Open Folder"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Paste a URL, optionally reuse a browser login, then choose quality and folder."
+msgstr "Paste a URL, optionally reuse a browser login, then choose quality and folder."
+
+#: src/app/App.tsx
+msgid "Paste a YouTube URL, optionally reuse a browser login, and save the video locally."
+msgstr "Paste a YouTube URL, optionally reuse a browser login, and save the video locally."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Paste a YouTube URL, then try again."
+msgstr "Paste a YouTube URL, then try again."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Pick quality and a save folder, then start the download."
+msgstr "Pick quality and a save folder, then start the download."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Quality"
+msgstr "Quality"
+
+#: src/features/download/components/DownloadQueue.tsx
+msgid "Queued"
+msgstr "Queued"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Queued for download…"
+msgstr "Queued for download…"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Ready to Download"
+msgstr "Ready to Download"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Refresh"
+msgstr "Refresh"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Refresh browser sessions"
+msgstr "Refresh browser sessions"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Refreshing browser sessions"
+msgstr "Refreshing browser sessions"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Refreshing…"
+msgstr "Refreshing…"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Saving to <0>{outputDir}</0>"
+msgstr "Saving to <0>{outputDir}</0>"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Scanning local browsers for YouTube logins…"
+msgstr "Scanning local browsers for YouTube logins…"
+
+#: src/app/App.tsx
+msgid "Skip to main content"
+msgstr "Skip to main content"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Start Download"
+msgstr "Start Download"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Starting…"
+msgstr "Starting…"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Unknown channel"
+msgstr "Unknown channel"
+
+#. placeholder {0}: session.label
+#: src/features/download/components/DownloadForm.tsx
+msgid "Use {0} (Logged In)"
+msgstr "Use {0} (Logged In)"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "Uses the YouTube login from {selectedLabel}. macOS may ask for Keychain access; closing the browser first can help. If downloads fail with an expired session, sign in again in that browser and refresh."
+msgstr "Uses the YouTube login from {selectedLabel}. macOS may ask for Keychain access; closing the browser first can help. If downloads fail with an expired session, sign in again in that browser and refresh."
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "YouTube Session"
+msgstr "YouTube Session"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "YouTube session browser"
+msgstr "YouTube session browser"
+
+#: src/features/download/components/DownloadForm.tsx
+msgid "YouTube URL"
+msgstr "YouTube URL"
