@@ -1,6 +1,12 @@
 # Celluloid Desktop
 
-Celluloid Desktop app to work with videos.  
+Celluloid Desktop app to work with videos.
+
+[<img src="assets/badges/macos.svg" alt="Download for macOS" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest)
+[<img src="assets/badges/windows.svg" alt="Download for Windows" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest)
+[<img src="assets/badges/linux.svg" alt="Download for Linux" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest)
+
+![Celluloid Desktop screenshot](assets/screenshot.png)
 
 ## Stack
 

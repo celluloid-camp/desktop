@@ -428,7 +428,7 @@ dependencies = [
 
 [[package]]
 name = "celluloid-desktop"
-version = "0.1.0"
+version = "1.1.0"
 dependencies = [
  "dirs 7.0.0",
  "rusqlite",
