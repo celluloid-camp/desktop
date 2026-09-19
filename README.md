@@ -2,9 +2,9 @@
 
 Celluloid Desktop app to work with videos.
 
-[<img src="assets/badges/macos.svg" alt="Download for macOS" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest)
-[<img src="assets/badges/windows.svg" alt="Download for Windows" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest)
-[<img src="assets/badges/linux.svg" alt="Download for Linux" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest)
+[<img src="assets/badges/macos.svg" alt="Download for macOS" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest/download/Celluloid.Desktop-macos-aarch64.dmg)
+[<img src="assets/badges/windows.svg" alt="Download for Windows" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest/download/Celluloid.Desktop-windows-x64-setup.exe)
+[<img src="assets/badges/linux.svg" alt="Download for Linux" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest/download/Celluloid.Desktop-linux-amd64.AppImage)
 
 ![Celluloid Desktop screenshot](assets/screenshot.png)
 

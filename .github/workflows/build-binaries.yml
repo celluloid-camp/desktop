@@ -22,15 +22,19 @@ jobs:
           - platform: macos-latest
             rust_target: aarch64-apple-darwin
             args: --target aarch64-apple-darwin
+            stable_name: Celluloid.Desktop-macos-aarch64.dmg
           - platform: macos-latest
             rust_target: x86_64-apple-darwin
             args: --target x86_64-apple-darwin
+            stable_name: Celluloid.Desktop-macos-x64.dmg
           - platform: ubuntu-22.04
             rust_target: x86_64-unknown-linux-gnu
             args: ""
+            stable_name: Celluloid.Desktop-linux-amd64.AppImage
           - platform: windows-latest
             rust_target: x86_64-pc-windows-msvc
             args: ""
+            stable_name: Celluloid.Desktop-windows-x64-setup.exe
 
     runs-on: ${{ matrix.platform }}
 
@@ -38,7 +42,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.tag_name }}
+          # Always build from main for workflow_dispatch so sidecar/script fixes apply;
+          # release events still pin to the published tag.
+          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || github.sha }}
 
       - name: Resolve release tag
         id: meta
@@ -102,3 +108,35 @@ jobs:
           releaseDraft: false
           prerelease: false
           args: ${{ matrix.args }}
+
+      - name: Upload stable download alias
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.meta.outputs.tag_name }}"
+          NAME="${{ matrix.stable_name }}"
+          case "${{ matrix.rust_target }}" in
+            aarch64-apple-darwin|x86_64-apple-darwin)
+              SRC="$(find src-tauri/target -type f -name '*.dmg' | head -n 1 || true)"
+              ;;
+            *-linux-*)
+              SRC="$(find src-tauri/target -type f -name '*.AppImage' | head -n 1 || true)"
+              ;;
+            *-windows-*)
+              SRC="$(find src-tauri/target -type f -name '*setup.exe' | head -n 1 || true)"
+              if [ -z "$SRC" ]; then
+                SRC="$(find src-tauri/target -type f -name '*.msi' | head -n 1 || true)"
+                NAME="Celluloid.Desktop-windows-x64.msi"
+              fi
+              ;;
+          esac
+          if [ -z "${SRC:-}" ]; then
+            echo "No bundle found for stable alias $NAME"
+            find src-tauri/target -type f \( -name '*.dmg' -o -name '*.AppImage' -o -name '*.exe' -o -name '*.msi' \) | head -50 || true
+            exit 1
+          fi
+          echo "Aliasing $SRC → $NAME"
+          cp "$SRC" "$NAME"
+          gh release upload "$TAG" "$NAME" --clobber --repo "${{ github.repository }}"
