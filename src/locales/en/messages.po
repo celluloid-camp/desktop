@@ -80,6 +80,10 @@ msgstr "Contacting YouTube…"
 msgid "Could not find {0}. Run <0>pnpm sidecars:fetch</0> (or install them on PATH as a fallback)."
 msgstr "Could not find {0}. Run <0>pnpm sidecars:fetch</0> (or install them on PATH as a fallback)."
 
+#: src/app/App.tsx
+msgid "Download and upload videos on YouTube, Dailymotion, Vimeo, Vevo, and more."
+msgstr "Download and upload videos on YouTube, Dailymotion, Vimeo, Vevo, and more."
+
 #: src/features/download/components/DownloadForm.tsx
 msgid "Download quality"
 msgstr "Download quality"
@@ -138,16 +142,12 @@ msgid "Open Folder"
 msgstr "Open Folder"
 
 #: src/features/download/components/DownloadForm.tsx
-msgid "Paste a URL, optionally reuse a browser login, then choose quality and folder."
-msgstr "Paste a URL, optionally reuse a browser login, then choose quality and folder."
-
-#: src/app/App.tsx
-msgid "Paste a YouTube URL, optionally reuse a browser login, and save the video locally."
-msgstr "Paste a YouTube URL, optionally reuse a browser login, and save the video locally."
+msgid "Paste a URL from YouTube, Dailymotion, Vimeo, Vevo, and more — optionally reuse a browser login, then choose quality and folder."
+msgstr "Paste a URL from YouTube, Dailymotion, Vimeo, Vevo, and more — optionally reuse a browser login, then choose quality and folder."
 
 #: src/features/download/components/DownloadForm.tsx
-msgid "Paste a YouTube URL, then try again."
-msgstr "Paste a YouTube URL, then try again."
+msgid "Paste a video URL, then try again."
+msgstr "Paste a video URL, then try again."
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Pick quality and a save folder, then start the download."
@@ -223,13 +223,13 @@ msgid "Uses the YouTube login from {selectedLabel}. macOS may ask for Keychain a
 msgstr "Uses the YouTube login from {selectedLabel}. macOS may ask for Keychain access; closing the browser first can help. If downloads fail with an expired session, sign in again in that browser and refresh."
 
 #: src/features/download/components/DownloadForm.tsx
+msgid "Video URL"
+msgstr "Video URL"
+
+#: src/features/download/components/DownloadForm.tsx
 msgid "YouTube Session"
 msgstr "YouTube Session"
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "YouTube session browser"
 msgstr "YouTube session browser"
-
-#: src/features/download/components/DownloadForm.tsx
-msgid "YouTube URL"
-msgstr "YouTube URL"

@@ -1,6 +1,6 @@
 # Celluloid Desktop
 
-Celluloid Desktop app to work with videos.
+Desktop app for [Celluloid](https://celluloid.com) to work with videos — download and upload on major platforms like YouTube, Dailymotion, Vimeo, and Vevo.
 
 [<img src="assets/badges/macos.svg" alt="Download for macOS" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest/download/Celluloid.Desktop-macos-aarch64.dmg)
 [<img src="assets/badges/windows.svg" alt="Download for Windows" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest/download/Celluloid.Desktop-windows-x64-setup.exe)

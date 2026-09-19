@@ -1,7 +1,7 @@
 [package]
 name = "celluloid-desktop"
 version = "1.1.0"
-description = "Celluloid Desktop"
+description = "Desktop app for Celluloid to download and upload videos on YouTube, Dailymotion, Vimeo, Vevo, and more"
 authors = ["Celluloid"]
 edition = "2021"
 

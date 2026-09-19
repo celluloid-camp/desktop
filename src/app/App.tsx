@@ -58,8 +58,8 @@ export function App() {
           </div>
           <p className="max-w-xl text-sm text-pretty text-muted-foreground">
             <Trans>
-              Paste a YouTube URL, optionally reuse a browser login, and save
-              the video locally.
+              Download and upload videos on YouTube, Dailymotion, Vimeo, Vevo,
+              and more.
             </Trans>
           </p>
         </header>

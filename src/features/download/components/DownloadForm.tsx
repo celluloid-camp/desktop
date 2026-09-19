@@ -157,7 +157,7 @@ export function DownloadForm({
     event.preventDefault();
     const trimmed = url.trim();
     if (!trimmed) {
-      setError(t`Paste a YouTube URL, then try again.`);
+      setError(t`Paste a video URL, then try again.`);
       urlRef.current?.focus();
       return;
     }
@@ -247,8 +247,8 @@ export function DownloadForm({
         </CardTitle>
         <CardDescription>
           <Trans>
-            Paste a URL, optionally reuse a browser login, then choose quality
-            and folder.
+            Paste a URL from YouTube, Dailymotion, Vimeo, Vevo, and more —
+            optionally reuse a browser login, then choose quality and folder.
           </Trans>
         </CardDescription>
       </CardHeader>
@@ -256,8 +256,8 @@ export function DownloadForm({
       <CardContent className="space-y-5">
         <form className="space-y-4" onSubmit={handleResolve} noValidate>
           <div className="space-y-2">
-            <Label htmlFor="youtube-url">
-              <Trans>YouTube URL</Trans>
+            <Label htmlFor="video-url">
+              <Trans>Video URL</Trans>
             </Label>
             <div className="flex gap-2">
               <div className="relative min-w-0 flex-1">
@@ -267,8 +267,8 @@ export function DownloadForm({
                 />
                 <Input
                   ref={urlRef}
-                  id="youtube-url"
-                  name="youtube-url"
+                  id="video-url"
+                  name="video-url"
                   type="url"
                   inputMode="url"
                   autoComplete="url"
