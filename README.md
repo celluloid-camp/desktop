@@ -32,10 +32,6 @@ pnpm sidecars:fetch -- --from-path
 - `pnpm lingui:extract` — update `en` / `fr` catalogs after changing UI strings
 - `pnpm typecheck` / `pnpm lint` / `pnpm format` / `pnpm check`
 
-## Internationalization
-
-UI strings use [Lingui](https://lingui.dev/) (`en` / `fr`). The app follows the desktop language (`navigator.languages`) and falls back to English. Catalogs live in `src/locales/{locale}/messages.po` and are compiled by the Vite plugin at build time.
-
 ## Usage
 
 1. Run `pnpm tauri dev`
