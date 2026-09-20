@@ -8,16 +8,6 @@ Desktop app for [Celluloid](https://celluloid.me) to work with videos — downlo
 
 ![Celluloid Desktop screenshot](assets/screenshot.png)
 
-## macOS install note
-
-GitHub release builds are **ad-hoc signed** (not Apple notarized yet). After mounting the DMG and copying the app to Applications, if macOS says the app is “damaged”, clear the quarantine flag once:
-
-```bash
-xattr -cr "/Applications/Celluloid Desktop.app"
-```
-
-Then open it again. Proper Developer ID + notarization will remove this step later.
-
 ## Stack
 
 - Tauri 2 + React + TypeScript + Vite
