@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0](https://github.com/celluloid-camp/desktop/compare/v1.4.0...v1.5.0) (2026-09-20)
+
+
+### Features
+
+* refresh app icons and allow yt-dlp under hardened runtime ([12dfaee](https://github.com/celluloid-camp/desktop/commit/12dfaee6752fb30ad2338c9291a536b169b18a17))
+
 ## [1.4.0](https://github.com/celluloid-camp/desktop/compare/v1.3.0...v1.4.0) (2026-09-20)
 
 
