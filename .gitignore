@@ -29,6 +29,11 @@ src-tauri/binaries/yt-dlp-*
 src-tauri/binaries/ffmpeg-*
 !src-tauri/binaries/.gitkeep
 
+# Updater signing private key (never commit)
+src-tauri/keys/*.key
+!src-tauri/keys/*.key.pub
+!src-tauri/keys/.gitkeep
+
 # Lingui compiled catalogs (Vite compiles .po on the fly)
 src/locales/**/messages.js
 src/locales/**/messages.mjs

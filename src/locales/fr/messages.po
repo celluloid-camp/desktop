@@ -11,6 +11,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#. placeholder {0}: providerMeta.name
+#: src/features/download/components/DownloadForm.tsx
+msgid "{0} Session"
+msgstr "Session {0}"
+
+#. placeholder {0}: providerMeta.name
+#: src/features/download/components/DownloadForm.tsx
+msgid "{0} session browser"
+msgstr "Navigateur de session {0}"
+
 #: src/features/download/components/DownloadQueue.tsx
 msgid "{completedCount, plural, one {Remove # completed item from this list. Files on disk stay untouched.} other {Remove # completed items from this list. Files on disk stay untouched.}}"
 msgstr "{completedCount, plural, one {Retirer # élément terminé de cette liste. Les fichiers sur le disque restent intacts.} other {Retirer # éléments terminés de cette liste. Les fichiers sur le disque restent intacts.}}"
@@ -26,6 +36,10 @@ msgstr "{detail} Essayez une autre qualité ou actualisez votre session de navig
 #: src/features/download/components/DownloadForm.tsx
 msgid "Added to Downloads below."
 msgstr "Ajouté aux téléchargements ci-dessous."
+
+#: src/app/AppShell.tsx
+msgid "Back to home"
+msgstr "Retour à l’accueil"
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Best available"
@@ -43,6 +57,10 @@ msgstr "Annuler"
 msgid "Change Folder"
 msgstr "Changer de dossier"
 
+#: src/app/AppShell.tsx
+msgid "Check for updates"
+msgstr "Rechercher des mises à jour"
+
 #: src/features/download/components/DownloadForm.tsx
 msgid "Choose a download folder, then start the download."
 msgstr "Choisissez un dossier de téléchargement, puis lancez le téléchargement."
@@ -50,6 +68,10 @@ msgstr "Choisissez un dossier de téléchargement, puis lancez le téléchargeme
 #: src/features/download/components/DownloadForm.tsx
 msgid "Choose a folder before starting the download."
 msgstr "Choisissez un dossier avant de lancer le téléchargement."
+
+#: src/app/PlaceholderView.tsx
+msgid "Choose a local video file and send it to your Celluloid account."
+msgstr "Choisissez un fichier vidéo local et envoyez-le vers votre compte Celluloid."
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Choose Download Folder"
@@ -67,26 +89,36 @@ msgstr "Effacer les terminés"
 msgid "Clear Completed Downloads?"
 msgstr "Effacer les téléchargements terminés ?"
 
+#: src/app/PlaceholderView.tsx
+msgid "Coming soon."
+msgstr "Bientôt disponible."
+
 #: src/features/download/components/DownloadQueue.tsx
 msgid "Completed"
 msgstr "Terminé"
 
+#. placeholder {0}: providerMeta.name
 #: src/features/download/components/DownloadForm.tsx
-msgid "Contacting YouTube…"
-msgstr "Contact de YouTube…"
+msgid "Contacting {0}…"
+msgstr "Contact de {0}…"
 
 #. placeholder {0}: missingDeps.join(" and ")
-#: src/app/App.tsx
+#: src/app/DownloadView.tsx
 msgid "Could not find {0}. Run <0>pnpm sidecars:fetch</0> (or install them on PATH as a fallback)."
 msgstr "Impossible de trouver {0}. Exécutez <0>pnpm sidecars:fetch</0> (ou installez-les dans le PATH)."
 
 #: src/app/App.tsx
-msgid "Download and upload videos on YouTube, Dailymotion, Vimeo, Vevo, and more."
-msgstr "Téléchargez et mettez en ligne des vidéos sur YouTube, Dailymotion, Vimeo, Vevo, et plus encore."
+#: src/app/HomeGrid.tsx
+msgid "Download"
+msgstr "Télécharger"
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Download quality"
 msgstr "Qualité du téléchargement"
+
+#: src/app/AppShell.tsx
+msgid "Download, transfer, or upload videos across YouTube, Dailymotion, Vimeo, Vevo, and more."
+msgstr "Téléchargez, transférez ou mettez en ligne des vidéos sur YouTube, Dailymotion, Vimeo, Vevo, et plus encore."
 
 #: src/features/download/components/DownloadQueue.tsx
 msgid "Downloading"
@@ -121,17 +153,31 @@ msgstr "Récupération"
 msgid "Fetching…"
 msgstr "Récupération…"
 
-#: src/app/App.tsx
+#: src/app/HomeGrid.tsx
+msgid "Home"
+msgstr "Accueil"
+
+#: src/app/DownloadView.tsx
 msgid "Missing Sidecars"
 msgstr "Sidecars manquants"
+
+#: src/app/PlaceholderView.tsx
+msgid "Move a video from one media platform to another — for example YouTube to Vimeo, or Dailymotion to Vevo."
+msgstr "Déplacez une vidéo d’une plateforme média vers une autre — par exemple YouTube vers Vimeo, ou Dailymotion vers Vevo."
+
+#: src/app/HomeGrid.tsx
+msgid "Move a video from one media platform to another."
+msgstr "Déplacez une vidéo d’une plateforme média vers une autre."
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "No Cookies (Anonymous)"
 msgstr "Sans cookies (anonyme)"
 
+#. placeholder {0}: providerMeta.name
+#. placeholder {1}: providerMeta.name
 #: src/features/download/components/DownloadForm.tsx
-msgid "No logged-in YouTube sessions found. Sign in to YouTube in Chrome, Safari, Firefox, or another supported browser, then refresh."
-msgstr "Aucune session YouTube connectée trouvée. Connectez-vous à YouTube dans Chrome, Safari, Firefox ou un autre navigateur pris en charge, puis actualisez."
+msgid "No logged-in {0} sessions found. Sign in to {1} in Chrome, Safari, Firefox, or another supported browser, then refresh."
+msgstr "Aucune session {0} connectée trouvée. Connectez-vous à {1} dans Chrome, Safari, Firefox ou un autre navigateur pris en charge, puis actualisez."
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "No thumbnail"
@@ -141,9 +187,10 @@ msgstr "Pas de miniature"
 msgid "Open Folder"
 msgstr "Ouvrir le dossier"
 
+#. placeholder {0}: providerMeta.name
 #: src/features/download/components/DownloadForm.tsx
-msgid "Paste a URL from YouTube, Dailymotion, Vimeo, Vevo, and more — optionally reuse a browser login, then choose quality and folder."
-msgstr "Collez une URL YouTube, Dailymotion, Vimeo, Vevo ou autre — réutilisez éventuellement une connexion navigateur, puis choisissez la qualité et le dossier."
+msgid "Paste a {0} URL — optionally reuse a browser login, then choose quality and folder."
+msgstr "Collez une URL {0} — réutilisez éventuellement une connexion navigateur, puis choisissez la qualité et le dossier."
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Paste a video URL, then try again."
@@ -152,6 +199,10 @@ msgstr "Collez une URL vidéo, puis réessayez."
 #: src/features/download/components/DownloadForm.tsx
 msgid "Pick quality and a save folder, then start the download."
 msgstr "Choisissez la qualité et un dossier, puis lancez le téléchargement."
+
+#: src/features/download/components/ProviderTabs.tsx
+msgid "Provider"
+msgstr "Fournisseur"
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Quality"
@@ -185,15 +236,24 @@ msgstr "Actualisation des sessions de navigateur"
 msgid "Refreshing…"
 msgstr "Actualisation…"
 
+#: src/app/HomeGrid.tsx
+msgid "Save videos from YouTube, Dailymotion, Vimeo, Vevo, and more."
+msgstr "Enregistrez des vidéos depuis YouTube, Dailymotion, Vimeo, Vevo, et plus encore."
+
 #: src/features/download/components/DownloadForm.tsx
 msgid "Saving to <0>{outputDir}</0>"
 msgstr "Enregistrement dans <0>{outputDir}</0>"
 
+#. placeholder {0}: providerMeta.name
 #: src/features/download/components/DownloadForm.tsx
-msgid "Scanning local browsers for YouTube logins…"
-msgstr "Recherche de connexions YouTube dans les navigateurs locaux…"
+msgid "Scanning local browsers for {0} logins…"
+msgstr "Recherche de connexions {0} dans les navigateurs locaux…"
 
-#: src/app/App.tsx
+#: src/app/HomeGrid.tsx
+msgid "Send a local video to your Celluloid account."
+msgstr "Envoyez une vidéo locale vers votre compte Celluloid."
+
+#: src/app/AppShell.tsx
 msgid "Skip to main content"
 msgstr "Aller au contenu principal"
 
@@ -209,27 +269,36 @@ msgstr "Lancer le téléchargement"
 msgid "Starting…"
 msgstr "Démarrage…"
 
+#: src/app/App.tsx
+#: src/app/HomeGrid.tsx
+#: src/app/PlaceholderView.tsx
+msgid "Transfer"
+msgstr "Transfert"
+
 #: src/features/download/components/DownloadForm.tsx
 msgid "Unknown channel"
 msgstr "Chaîne inconnue"
+
+#: src/app/App.tsx
+#: src/app/HomeGrid.tsx
+#: src/app/PlaceholderView.tsx
+msgid "Upload"
+msgstr "Mettre en ligne"
 
 #. placeholder {0}: session.label
 #: src/features/download/components/DownloadForm.tsx
 msgid "Use {0} (Logged In)"
 msgstr "Utiliser {0} (connecté)"
 
+#. placeholder {0}: providerMeta.name
 #: src/features/download/components/DownloadForm.tsx
-msgid "Uses the YouTube login from {selectedLabel}. macOS may ask for Keychain access; closing the browser first can help. If downloads fail with an expired session, sign in again in that browser and refresh."
-msgstr "Utilise la connexion YouTube de {selectedLabel}. macOS peut demander l’accès au Trousseau ; fermer le navigateur au préalable peut aider. Si les téléchargements échouent à cause d’une session expirée, reconnectez-vous dans ce navigateur puis actualisez."
+msgid "Uses the {0} login from {selectedLabel}. macOS may ask for Keychain access; closing the browser first can help. If downloads fail with an expired session, sign in again in that browser and refresh."
+msgstr "Utilise la connexion {0} de {selectedLabel}. macOS peut demander l’accès au Trousseau ; fermer le navigateur au préalable peut aider. Si les téléchargements échouent à cause d’une session expirée, reconnectez-vous dans ce navigateur puis actualisez."
+
+#: src/features/download/components/ProviderTabs.tsx
+msgid "Video provider"
+msgstr "Fournisseur vidéo"
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Video URL"
 msgstr "URL de la vidéo"
-
-#: src/features/download/components/DownloadForm.tsx
-msgid "YouTube Session"
-msgstr "Session YouTube"
-
-#: src/features/download/components/DownloadForm.tsx
-msgid "YouTube session browser"
-msgstr "Navigateur de session YouTube"

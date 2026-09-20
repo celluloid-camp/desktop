@@ -30,6 +30,10 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { cn, formatBytes, formatDuration } from "@/shared/lib/utils";
+import {
+  DOWNLOAD_PROVIDER_META,
+  type DownloadProvider,
+} from "../providers";
 import type { BrowserSession, VideoFormat, VideoInfo } from "../types";
 
 const BEST_FORMAT_ID = "bv*+ba/b";
@@ -37,6 +41,7 @@ const BEST_FORMAT_ID = "bv*+ba/b";
 type SelectOption = { value: string; label: string };
 
 type DownloadFormProps = {
+  provider: DownloadProvider;
   busy: boolean;
   cookieMode: "none" | "browser";
   cookieBrowserId: string | null;
@@ -82,6 +87,7 @@ function suggestedFormats(formats: VideoFormat[]): VideoFormat[] {
 }
 
 export function DownloadForm({
+  provider,
   busy,
   cookieMode,
   cookieBrowserId,
@@ -94,6 +100,7 @@ export function DownloadForm({
   onEnqueue,
 }: DownloadFormProps) {
   const { t } = useLingui();
+  const providerMeta = DOWNLOAD_PROVIDER_META[provider];
   const [url, setUrl] = useState("");
   const [outputDir, setOutputDir] = useState("");
   const [info, setInfo] = useState<VideoInfo | null>(null);
@@ -103,6 +110,13 @@ export function DownloadForm({
   const [submitting, setSubmitting] = useState(false);
   const errorRef = useRef<HTMLDivElement>(null);
   const urlRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setInfo(null);
+    setError(null);
+    setStatus(null);
+    setFormatId(BEST_FORMAT_ID);
+  }, [provider]);
 
   const options = useMemo(
     () => (info ? suggestedFormats(info.formats) : []),
@@ -163,7 +177,7 @@ export function DownloadForm({
     }
 
     setError(null);
-    setStatus(t`Contacting YouTube…`);
+    setStatus(t`Contacting ${providerMeta.name}…`);
     setInfo(null);
     try {
       const resolved = await onResolve(trimmed);
@@ -247,8 +261,8 @@ export function DownloadForm({
         </CardTitle>
         <CardDescription>
           <Trans>
-            Paste a URL from YouTube, Dailymotion, Vimeo, Vevo, and more —
-            optionally reuse a browser login, then choose quality and folder.
+            Paste a {providerMeta.name} URL — optionally reuse a browser login,
+            then choose quality and folder.
           </Trans>
         </CardDescription>
       </CardHeader>
@@ -276,7 +290,7 @@ export function DownloadForm({
                   className="pl-9"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
-                  placeholder="https://www.youtube.com/watch?v=…"
+                  placeholder={providerMeta.placeholder}
                   aria-invalid={Boolean(error && !info)}
                   aria-describedby={error ? "fetch-error" : undefined}
                 />
@@ -298,11 +312,11 @@ export function DownloadForm({
           <div className="space-y-2 rounded-lg border border-border bg-background/80 p-3">
             <div className="flex items-center justify-between gap-2">
               <Label
-                htmlFor="youtube-session"
+                htmlFor="provider-session"
                 className="flex items-center gap-2 text-muted-foreground"
               >
                 <Cookie aria-hidden="true" className="size-4" />
-                <Trans>YouTube Session</Trans>
+                <Trans>{providerMeta.name} Session</Trans>
               </Label>
               <Button
                 type="button"
@@ -333,14 +347,16 @@ export function DownloadForm({
 
             {loadingSessions ? (
               <p className="text-xs text-muted-foreground" aria-live="polite">
-                <Trans>Scanning local browsers for YouTube logins…</Trans>
+                <Trans>
+                  Scanning local browsers for {providerMeta.name} logins…
+                </Trans>
               </p>
             ) : sessions.length === 0 ? (
               <p className="text-xs text-muted-foreground">
                 <Trans>
-                  No logged-in YouTube sessions found. Sign in to YouTube in
-                  Chrome, Safari, Firefox, or another supported browser, then
-                  refresh.
+                  No logged-in {providerMeta.name} sessions found. Sign in to{" "}
+                  {providerMeta.name} in Chrome, Safari, Firefox, or another
+                  supported browser, then refresh.
                 </Trans>
               </p>
             ) : (
@@ -358,9 +374,9 @@ export function DownloadForm({
                   }}
                 >
                   <SelectTrigger
-                    id="youtube-session"
+                    id="provider-session"
                     className="w-full"
-                    aria-label={t`YouTube session browser`}
+                    aria-label={t`${providerMeta.name} session browser`}
                   >
                     <SelectValue />
                   </SelectTrigger>
@@ -375,10 +391,10 @@ export function DownloadForm({
                 {cookieMode === "browser" && cookieBrowserId ? (
                   <p className="text-xs text-muted-foreground">
                     <Trans>
-                      Uses the YouTube login from {selectedLabel}. macOS may ask
-                      for Keychain access; closing the browser first can help.
-                      If downloads fail with an expired session, sign in again
-                      in that browser and refresh.
+                      Uses the {providerMeta.name} login from {selectedLabel}.
+                      macOS may ask for Keychain access; closing the browser
+                      first can help. If downloads fail with an expired session,
+                      sign in again in that browser and refresh.
                     </Trans>
                   </p>
                 ) : null}

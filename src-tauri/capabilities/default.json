@@ -16,8 +16,19 @@
         { "path": "$VIDEO/**" }
       ]
     },
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        { "url": "https://celluloid.me" },
+        { "url": "https://celluloid.me/*" },
+        { "url": "https://www.celluloid.me" },
+        { "url": "https://www.celluloid.me/*" }
+      ]
+    },
     "dialog:default",
     "shell:allow-open",
+    "updater:default",
+    "process:default",
     {
       "identifier": "shell:allow-spawn",
       "allow": [
