@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/celluloid-camp/desktop/compare/v1.2.0...v1.3.0) (2026-09-20)
+
+
+### Features
+
+* polish desktop chrome, download UI, and locale switch ([2592690](https://github.com/celluloid-camp/desktop/commit/259269080b913f61244999d6e3ab07d4c488cbc5))
+
 ## [1.2.0](https://github.com/celluloid-camp/desktop/compare/v1.1.0...v1.2.0) (2026-09-20)
 
 
