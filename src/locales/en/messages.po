@@ -54,6 +54,14 @@ msgstr "Best available"
 msgid "Cancel"
 msgstr "Cancel"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Cancel download"
+msgstr "Cancel download"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Cancel this update download?"
+msgstr "Cancel this update download?"
+
 #: src/app/HomeGrid.tsx
 msgid "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Desktop."
 msgstr "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Desktop."
@@ -86,6 +94,10 @@ msgstr "Clear Completed"
 msgid "Clear finished downloads?"
 msgstr "Clear finished downloads?"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Close"
+msgstr "Close"
+
 #: src/app/PlaceholderView.tsx
 msgid "Coming soon"
 msgstr "Coming soon"
@@ -105,6 +117,10 @@ msgstr "Contacting {0}…"
 msgid "Download"
 msgstr "Download"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Download complete"
+msgstr "Download complete"
+
 #: src/features/download/components/DownloadForm.tsx
 msgid "Download quality"
 msgstr "Download quality"
@@ -120,6 +136,19 @@ msgstr "Download, transfer, or upload videos on YouTube, Dailymotion, Vimeo, Vev
 #: src/features/download/components/DownloadQueue.tsx
 msgid "Downloading"
 msgstr "Downloading"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Downloading update…"
+msgstr "Downloading update…"
+
+#. placeholder {0}: state.version
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Downloading version {0}."
+msgstr "Downloading version {0}."
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Downloading…"
+msgstr "Downloading…"
 
 #: src/features/download/components/DownloadQueue.tsx
 msgid "Downloads"
@@ -140,6 +169,18 @@ msgstr "Get video"
 #: src/app/HomeGrid.tsx
 msgid "Home"
 msgstr "Home"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Installing update…"
+msgstr "Installing update…"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Installing…"
+msgstr "Installing…"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Keep downloading"
+msgstr "Keep downloading"
 
 #: src/shared/ui/LocaleSwitch.tsx
 msgid "Language"
@@ -237,6 +278,14 @@ msgstr "Refreshing browser logins"
 msgid "Refreshing…"
 msgstr "Refreshing…"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Restart"
+msgstr "Restart"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Restarting…"
+msgstr "Restarting…"
+
 #: src/app/HomeGrid.tsx
 msgid "Save videos from YouTube, Dailymotion, Vimeo, Vevo…"
 msgstr "Save videos from YouTube, Dailymotion, Vimeo, Vevo…"
@@ -261,6 +310,10 @@ msgstr "Skip to main content"
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Something went wrong."
+msgstr "Something went wrong."
+
 #: src/features/download/components/DownloadForm.tsx
 msgid "Starting…"
 msgstr "Starting…"
@@ -274,6 +327,14 @@ msgstr "Transfer"
 #: src/features/download/components/DownloadForm.tsx
 msgid "Unknown channel"
 msgstr "Unknown channel"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Update failed"
+msgstr "Update failed"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Update ready"
+msgstr "Update ready"
 
 #: src/app/App.tsx
 #: src/app/HomeGrid.tsx
@@ -294,6 +355,11 @@ msgstr "Use {0} (signed in)"
 #: src/features/download/components/DownloadForm.tsx
 msgid "Uses your {0} login from {selectedLabel}. On macOS, Keychain may ask for permission; closing the browser first often helps. If downloads fail because the login expired, sign in again there and hit Refresh."
 msgstr "Uses your {0} login from {selectedLabel}. On macOS, Keychain may ask for permission; closing the browser first often helps. If downloads fail because the login expired, sign in again there and hit Refresh."
+
+#. placeholder {0}: state.version
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Version {0} is installed. Restart Celluloid Desktop to finish."
+msgstr "Version {0} is installed. Restart Celluloid Desktop to finish."
 
 #: src/features/download/components/ProviderTabs.tsx
 msgid "Video site"

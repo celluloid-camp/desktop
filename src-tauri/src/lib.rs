@@ -1,3 +1,4 @@
+mod app_menu;
 mod browsers;
 mod download;
 mod window_size;
@@ -14,11 +15,16 @@ pub fn run() {
         .plugin(tauri_plugin_process::init())
         .plugin(tauri_plugin_updater::Builder::new().build())
         .setup(|app| {
+            #[cfg(target_os = "macos")]
+            app_menu::install_app_menu(app)?;
             if let Some(window) = app.get_webview_window("main") {
                 window_size::apply_window_size(&window)?;
                 window_vibrancy::apply_window_background(&window)?;
             }
             Ok(())
+        })
+        .on_menu_event(|app, event| {
+            app_menu::handle_menu_event(&app, &event);
         })
         .invoke_handler(tauri::generate_handler![
             browsers::list_youtube_browser_sessions,

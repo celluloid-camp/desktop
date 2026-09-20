@@ -54,6 +54,14 @@ msgstr "Meilleure qualité"
 msgid "Cancel"
 msgstr "Annuler"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Cancel download"
+msgstr "Annuler le téléchargement"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Cancel this update download?"
+msgstr "Annuler ce téléchargement de mise à jour ?"
+
 #: src/app/HomeGrid.tsx
 msgid "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Desktop."
 msgstr "Celluloid n’a pas trouvé les outils pour enregistrer des vidéos. Redémarrez l’application. Si ça ne change rien, réinstallez Celluloid Desktop."
@@ -86,6 +94,10 @@ msgstr "Effacer les terminés"
 msgid "Clear finished downloads?"
 msgstr "Effacer les téléchargements terminés ?"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Close"
+msgstr "Fermer"
+
 #: src/app/PlaceholderView.tsx
 msgid "Coming soon"
 msgstr "Bientôt"
@@ -105,6 +117,10 @@ msgstr "Contact avec {0}…"
 msgid "Download"
 msgstr "Télécharger"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Download complete"
+msgstr "Téléchargement terminé"
+
 #: src/features/download/components/DownloadForm.tsx
 msgid "Download quality"
 msgstr "Qualité"
@@ -120,6 +136,19 @@ msgstr "Téléchargez, transférez ou envoyez des vidéos depuis YouTube, Dailym
 #: src/features/download/components/DownloadQueue.tsx
 msgid "Downloading"
 msgstr "Téléchargement"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Downloading update…"
+msgstr "Téléchargement de la mise à jour…"
+
+#. placeholder {0}: state.version
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Downloading version {0}."
+msgstr "Téléchargement de la version {0}."
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Downloading…"
+msgstr "Téléchargement…"
 
 #: src/features/download/components/DownloadQueue.tsx
 msgid "Downloads"
@@ -140,6 +169,18 @@ msgstr "Charger la vidéo"
 #: src/app/HomeGrid.tsx
 msgid "Home"
 msgstr "Accueil"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Installing update…"
+msgstr "Installation de la mise à jour…"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Installing…"
+msgstr "Installation…"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Keep downloading"
+msgstr "Continuer"
 
 #: src/shared/ui/LocaleSwitch.tsx
 msgid "Language"
@@ -237,6 +278,14 @@ msgstr "Actualisation des connexions"
 msgid "Refreshing…"
 msgstr "Actualisation…"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Restart"
+msgstr "Redémarrer"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Restarting…"
+msgstr "Redémarrage…"
+
 #: src/app/HomeGrid.tsx
 msgid "Save videos from YouTube, Dailymotion, Vimeo, Vevo…"
 msgstr "Enregistrez des vidéos depuis YouTube, Dailymotion, Vimeo, Vevo…"
@@ -261,6 +310,10 @@ msgstr "Aller au contenu"
 msgid "Something went wrong"
 msgstr "Une erreur s’est produite"
 
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Something went wrong."
+msgstr "Une erreur s’est produite."
+
 #: src/features/download/components/DownloadForm.tsx
 msgid "Starting…"
 msgstr "Démarrage…"
@@ -274,6 +327,14 @@ msgstr "Transférer"
 #: src/features/download/components/DownloadForm.tsx
 msgid "Unknown channel"
 msgstr "Chaîne inconnue"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Update failed"
+msgstr "Échec de la mise à jour"
+
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Update ready"
+msgstr "Mise à jour prête"
 
 #: src/app/App.tsx
 #: src/app/HomeGrid.tsx
@@ -294,6 +355,11 @@ msgstr "Utiliser {0} (connecté)"
 #: src/features/download/components/DownloadForm.tsx
 msgid "Uses your {0} login from {selectedLabel}. On macOS, Keychain may ask for permission; closing the browser first often helps. If downloads fail because the login expired, sign in again there and hit Refresh."
 msgstr "Utilise votre connexion {0} de {selectedLabel}. Sur macOS, le Trousseau peut demander une permission : fermez d’abord le navigateur, ça aide souvent. Si le téléchargement échoue parce que la connexion a expiré, reconnectez-vous là-bas et cliquez sur Actualiser."
+
+#. placeholder {0}: state.version
+#: src/features/update/UpdateProgressDialog.tsx
+msgid "Version {0} is installed. Restart Celluloid Desktop to finish."
+msgstr "La version {0} est installée. Redémarrez Celluloid Desktop pour terminer."
 
 #: src/features/download/components/ProviderTabs.tsx
 msgid "Video site"

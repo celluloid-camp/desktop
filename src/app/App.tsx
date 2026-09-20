@@ -5,6 +5,7 @@ import { DownloadView } from "@/app/DownloadView";
 import { HomeGrid } from "@/app/HomeGrid";
 import { PlaceholderView } from "@/app/PlaceholderView";
 import type { AppView } from "@/app/views";
+import { UpdateProgressDialog } from "@/features/update/UpdateProgressDialog";
 import { useAutoUpdater } from "@/features/update/useAutoUpdater";
 
 const VIEW_TITLES: Record<Exclude<AppView, "home">, ReactNode> = {
@@ -18,15 +19,18 @@ export function App() {
   useAutoUpdater();
 
   return (
-    <AppShell
-      showHomeIntro={view === "home"}
-      sectionTitle={view === "home" ? undefined : VIEW_TITLES[view]}
-      onBack={view === "home" ? undefined : () => setView("home")}
-    >
-      {view === "home" ? <HomeGrid onSelect={setView} /> : null}
-      {view === "download" ? <DownloadView /> : null}
-      {view === "transfer" ? <PlaceholderView kind="transfer" /> : null}
-      {view === "upload" ? <PlaceholderView kind="upload" /> : null}
-    </AppShell>
+    <>
+      <AppShell
+        showHomeIntro={view === "home"}
+        sectionTitle={view === "home" ? undefined : VIEW_TITLES[view]}
+        onBack={view === "home" ? undefined : () => setView("home")}
+      >
+        {view === "home" ? <HomeGrid onSelect={setView} /> : null}
+        {view === "download" ? <DownloadView /> : null}
+        {view === "transfer" ? <PlaceholderView kind="transfer" /> : null}
+        {view === "upload" ? <PlaceholderView kind="upload" /> : null}
+      </AppShell>
+      <UpdateProgressDialog />
+    </>
   );
 }
