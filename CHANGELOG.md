@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0](https://github.com/celluloid-camp/desktop/compare/v1.3.0...v1.4.0) (2026-09-20)
+
+
+### Features
+
+* sign and notarize macOS release builds with Developer ID ([bfffe60](https://github.com/celluloid-camp/desktop/commit/bfffe6036a2b4bb93e2c884410682b7e68e6686c))
+
 ## [1.3.0](https://github.com/celluloid-camp/desktop/compare/v1.2.0...v1.3.0) (2026-09-20)
 
 
