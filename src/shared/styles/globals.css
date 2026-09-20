@@ -4,12 +4,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Local fonts from sources/apps/web/public/fonts */
+/* Local fonts from sources/apps/web — bundled via Vite so Tauri can load them */
 @font-face {
   font-family: "lexendregular";
   src:
-    url("/fonts/lexend-variablefont_wght-webfont.woff2") format("woff2"),
-    url("/fonts/lexend-variablefont_wght-webfont.woff") format("woff");
+    url("../../assets/fonts/lexend-variablefont_wght-webfont.woff2")
+      format("woff2"),
+    url("../../assets/fonts/lexend-variablefont_wght-webfont.woff") format("woff");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -18,8 +19,8 @@
 @font-face {
   font-family: "abril_fatfaceregular";
   src:
-    url("/fonts/abrilfatface-regular-webfont.woff2") format("woff2"),
-    url("/fonts/abrilfatface-regular-webfont.woff") format("woff");
+    url("../../assets/fonts/abrilfatface-regular-webfont.woff2") format("woff2"),
+    url("../../assets/fonts/abrilfatface-regular-webfont.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -71,7 +72,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --font-sans:
     "lexendregular", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
-    Arial, sans-serif;
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-serif: "abril_fatfaceregular", serif;
 }
 
@@ -80,10 +81,11 @@
   color-scheme: light;
   --radius: 0.5rem;
 
-  --background: rgba(249, 250, 252, 0.72);
+  /* Brand peach */
+  --background: #ffe7db;
   --foreground: #121828;
 
-  --card: rgba(255, 255, 255, 0.78);
+  --card: rgba(255, 255, 255, 0.72);
   --card-foreground: #121828;
 
   --popover: #ffffff;
@@ -119,7 +121,7 @@
   --chart-4: #ffb020;
   --chart-5: #828df8;
 
-  --sidebar: #f9fafc;
+  --sidebar: #ffe7db;
   --sidebar-foreground: #121828;
   --sidebar-primary: #557cff;
   --sidebar-primary-foreground: #ffffff;
@@ -139,7 +141,7 @@
   --color-error: #d14343;
   --color-text-primary: #121828;
   --color-text-secondary: #65748b;
-  --color-background-default: #f9fafc;
+  --color-background-default: #ffe7db;
   --color-background-paper: #ffffff;
   --color-divider: #e6e8f0;
   --color-brand-green: #c2ccab;
@@ -148,7 +150,9 @@
   --bg-elevated: var(--card);
   --ink: var(--foreground);
   --titlebar-height: 44px;
-  --font-family-main: var(--font-sans);
+  --font-family-main:
+    "lexendregular", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-serif: "abril_fatfaceregular", serif;
   --shadow-card: 0 1px 2px rgba(18, 24, 40, 0.04), 0 4px 16px rgba(18, 24, 40, 0.06);
 }
@@ -193,23 +197,51 @@
   body,
   #root {
     min-height: 100%;
-    background: transparent;
+    background-color: var(--background);
   }
 
   body {
     @apply text-foreground antialiased;
     margin: 0;
-    font-family: var(--font-sans);
-    /* Translucent Celluloid wash over native window blur */
+    font-family: var(--font-family-main);
+    /* Brand peach (#FFE7DB) */
     background-color: var(--background);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    /* Drag the window from empty background chrome */
+    -webkit-app-region: drag;
+    app-region: drag;
   }
 
   button,
   input,
   select {
     font: inherit;
+  }
+
+  /* Interactive controls must not start a window drag */
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  option,
+  label,
+  [role="button"],
+  [role="tab"],
+  [role="option"],
+  [role="menuitem"],
+  [role="checkbox"],
+  [role="radio"],
+  [role="switch"],
+  [role="slider"],
+  [role="combobox"],
+  [role="listbox"],
+  [role="textbox"],
+  [contenteditable="true"],
+  .no-drag {
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -224,9 +256,30 @@
   }
 }
 
+*[data-tauri-drag-region] {
+  -webkit-app-region: drag;
+  app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+  app-region: no-drag;
+}
+
 .titlebar-drag {
   height: var(--titlebar-height);
   width: 100%;
   flex-shrink: 0;
+  -webkit-app-region: drag;
   app-region: drag;
+}
+
+.font-lexend {
+  font-family:
+    "lexendregular", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.font-abril {
+  font-family: "abril_fatfaceregular", Georgia, serif;
 }

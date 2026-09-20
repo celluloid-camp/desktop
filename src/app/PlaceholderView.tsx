@@ -1,6 +1,19 @@
 import { Trans } from "@lingui/react/macro";
 import { ArrowLeftRight, Upload } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
 
 type PlaceholderViewProps = {
   kind: "transfer" | "upload";
@@ -23,20 +36,35 @@ export function PlaceholderView({ kind }: PlaceholderViewProps) {
         <CardDescription>
           {kind === "transfer" ? (
             <Trans>
-              Move a video from one media platform to another — for example
-              YouTube to Vimeo, or Dailymotion to Vevo.
+              Move a video from one site to another, like YouTube to Vimeo or
+              Dailymotion to Vevo.
             </Trans>
           ) : (
             <Trans>
-              Choose a local video file and send it to your Celluloid account.
+              Pick a video on your computer and send it to your Celluloid
+              account.
             </Trans>
           )}
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="rounded-lg bg-muted/60 px-3 py-4 text-sm text-muted-foreground ring-1 ring-foreground/5">
-          <Trans>Coming soon.</Trans>
-        </p>
+        <Empty className="border border-dashed border-border bg-white/50">
+          <EmptyHeader>
+            <EmptyMedia variant="icon">
+              <Icon aria-hidden="true" />
+            </EmptyMedia>
+            <EmptyTitle>
+              <Trans>Coming soon</Trans>
+            </EmptyTitle>
+            <EmptyDescription>
+              {kind === "transfer" ? (
+                <Trans>Site-to-site transfer isn’t available yet.</Trans>
+              ) : (
+                <Trans>Upload to Celluloid isn’t available yet.</Trans>
+              )}
+            </EmptyDescription>
+          </EmptyHeader>
+        </Empty>
       </CardContent>
     </Card>
   );

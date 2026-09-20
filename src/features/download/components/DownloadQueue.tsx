@@ -20,6 +20,13 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/shared/lib/utils";
 import { openDownloadFolder } from "../api/tauri";
@@ -96,13 +103,13 @@ export function DownloadQueue({ items, onClearCompleted }: DownloadQueueProps) {
             <AlertDialogContent size="sm" className="overscroll-contain">
               <AlertDialogHeader>
                 <AlertDialogTitle>
-                  <Trans>Clear Completed Downloads?</Trans>
+                  <Trans>Clear finished downloads?</Trans>
                 </AlertDialogTitle>
                 <AlertDialogDescription>
                   <Plural
                     value={completedCount}
-                    one="Remove # completed item from this list. Files on disk stay untouched."
-                    other="Remove # completed items from this list. Files on disk stay untouched."
+                    one="Remove # finished item from this list. Files on disk are kept."
+                    other="Remove # finished items from this list. Files on disk are kept."
                   />
                 </AlertDialogDescription>
               </AlertDialogHeader>
@@ -121,9 +128,19 @@ export function DownloadQueue({ items, onClearCompleted }: DownloadQueueProps) {
 
       <CardContent>
         {items.length === 0 ? (
-          <p className="rounded-lg border border-dashed border-border px-4 py-8 text-center text-sm text-muted-foreground">
-            <Trans>Fetched videos appear here while they download.</Trans>
-          </p>
+          <Empty className="border border-dashed border-border bg-white/50">
+            <EmptyHeader>
+              <EmptyMedia variant="icon">
+                <Download aria-hidden="true" />
+              </EmptyMedia>
+              <EmptyTitle>
+                <Trans>No downloads yet</Trans>
+              </EmptyTitle>
+              <EmptyDescription>
+                <Trans>Videos show up here while they download.</Trans>
+              </EmptyDescription>
+            </EmptyHeader>
+          </Empty>
         ) : (
           <ul
             className="space-y-3"
@@ -137,7 +154,7 @@ export function DownloadQueue({ items, onClearCompleted }: DownloadQueueProps) {
               return (
                 <li
                   key={item.id}
-                  className="rounded-lg border border-border bg-background p-3"
+                  className="rounded-lg border border-border bg-white/70 p-3"
                 >
                   <div className="flex gap-3">
                     {item.thumbnail ? (
@@ -180,7 +197,7 @@ export function DownloadQueue({ items, onClearCompleted }: DownloadQueueProps) {
                         {item.speed ? <span>{item.speed}</span> : null}
                         {item.eta ? (
                           <span>
-                            <Trans>ETA {item.eta}</Trans>
+                            <Trans>{item.eta} left</Trans>
                           </span>
                         ) : null}
                         {item.error ? (

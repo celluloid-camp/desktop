@@ -1,5 +1,6 @@
 mod browsers;
 mod download;
+mod window_size;
 mod window_vibrancy;
 
 use tauri::Manager;
@@ -14,7 +15,8 @@ pub fn run() {
         .plugin(tauri_plugin_updater::Builder::new().build())
         .setup(|app| {
             if let Some(window) = app.get_webview_window("main") {
-                window_vibrancy::apply_window_vibrancy(&window)?;
+                window_size::apply_window_size(&window)?;
+                window_vibrancy::apply_window_background(&window)?;
             }
             Ok(())
         })

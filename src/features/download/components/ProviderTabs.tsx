@@ -21,7 +21,7 @@ export function ProviderTabs({ value, onChange }: ProviderTabsProps) {
       </p>
       <div
         role="tablist"
-        aria-label={t`Video provider`}
+        aria-label={t`Video site`}
         className="grid grid-cols-2 gap-2 sm:grid-cols-4"
       >
         {DOWNLOAD_PROVIDERS.map((id) => {
@@ -38,11 +38,16 @@ export function ProviderTabs({ value, onChange }: ProviderTabsProps) {
                 "flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-left ring-1 transition-colors",
                 "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
                 selected
-                  ? "bg-primary/10 text-foreground ring-primary/30"
-                  : "bg-card text-muted-foreground ring-foreground/10 hover:bg-accent/40 hover:text-foreground hover:ring-foreground/15",
+                  ? "bg-white text-foreground ring-foreground/15 shadow-sm"
+                  : "bg-foreground/[0.06] text-muted-foreground ring-foreground/10 hover:bg-foreground/[0.1] hover:text-foreground hover:ring-foreground/15",
               )}
             >
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-background/80 ring-1 ring-foreground/5">
+              <span
+                className={cn(
+                  "flex size-8 shrink-0 items-center justify-center rounded-md ring-1 ring-foreground/5",
+                  selected ? "bg-foreground/[0.04]" : "bg-white/50",
+                )}
+              >
                 <img
                   src={meta.logoSrc}
                   alt=""

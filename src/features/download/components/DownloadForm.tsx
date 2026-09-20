@@ -4,7 +4,6 @@ import { Trans, useLingui } from "@lingui/react/macro";
 import {
   Cookie,
   FolderOpen,
-  Link2,
   LoaderCircle,
   RefreshCw,
   Search,
@@ -19,7 +18,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupTextarea,
+} from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -109,7 +113,7 @@ export function DownloadForm({
   const [status, setStatus] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const errorRef = useRef<HTMLDivElement>(null);
-  const urlRef = useRef<HTMLInputElement>(null);
+  const urlRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     setInfo(null);
@@ -125,10 +129,10 @@ export function DownloadForm({
 
   const sessionItems = useMemo<SelectOption[]>(
     () => [
-      { value: "none", label: t`No Cookies (Anonymous)` },
+      { value: "none", label: t`No cookies (signed out)` },
       ...sessions.map((session) => ({
         value: session.id,
-        label: t`Use ${session.label} (Logged In)`,
+        label: t`Use ${session.label} (signed in)`,
       })),
     ],
     [sessions, t],
@@ -136,7 +140,7 @@ export function DownloadForm({
 
   const qualityItems = useMemo<SelectOption[]>(
     () => [
-      { value: BEST_FORMAT_ID, label: t`Best Available (Auto)` },
+      { value: BEST_FORMAT_ID, label: t`Best available` },
       ...options.map((format) => ({
         value: format.formatId,
         label: formatLabel(format),
@@ -171,7 +175,7 @@ export function DownloadForm({
     event.preventDefault();
     const trimmed = url.trim();
     if (!trimmed) {
-      setError(t`Paste a video URL, then try again.`);
+      setError(t`Paste a video URL and try again.`);
       urlRef.current?.focus();
       return;
     }
@@ -187,9 +191,7 @@ export function DownloadForm({
     } catch (err) {
       setStatus(null);
       const detail = err instanceof Error ? err.message : String(err);
-      setError(
-        t`${detail} Check the URL or try another browser session.`,
-      );
+      setError(t`${detail} Check the URL, or try another browser login.`);
     }
   }
 
@@ -197,7 +199,7 @@ export function DownloadForm({
     const selected = await open({
       directory: true,
       multiple: false,
-      title: t`Choose Download Folder`,
+      title: t`Choose a folder`,
       defaultPath: outputDir || undefined,
     });
     if (typeof selected === "string") {
@@ -210,13 +212,13 @@ export function DownloadForm({
     if (!info) return;
 
     if (!outputDir) {
-      setError(t`Choose a download folder, then start the download.`);
+      setError(t`Choose a folder first.`);
       return;
     }
 
     setSubmitting(true);
     setError(null);
-    setStatus(t`Queued for download…`);
+    setStatus(t`Queued…`);
     try {
       const selected = options.find((f) => f.formatId === formatId);
       const hasAudio = selected?.acodec && selected.acodec !== "none";
@@ -245,7 +247,7 @@ export function DownloadForm({
     } catch (err) {
       const detail = err instanceof Error ? err.message : String(err);
       setError(
-        t`${detail} Try another quality or refresh your browser session.`,
+        t`${detail} Try another quality, or refresh your browser login.`,
       );
       setStatus(null);
     } finally {
@@ -257,12 +259,12 @@ export function DownloadForm({
     <Card>
       <CardHeader>
         <CardTitle className="text-pretty">
-          <Trans>Fetch Video</Trans>
+          <Trans>Get video</Trans>
         </CardTitle>
         <CardDescription>
           <Trans>
-            Paste a {providerMeta.name} URL — optionally reuse a browser login,
-            then choose quality and folder.
+            Paste a {providerMeta.name} link. You can reuse a browser login,
+            then pick quality and a folder.
           </Trans>
         </CardDescription>
       </CardHeader>
@@ -273,50 +275,65 @@ export function DownloadForm({
             <Label htmlFor="video-url">
               <Trans>Video URL</Trans>
             </Label>
-            <div className="flex gap-2">
-              <div className="relative min-w-0 flex-1">
-                <Link2
-                  aria-hidden="true"
-                  className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground"
-                />
-                <Input
-                  ref={urlRef}
-                  id="video-url"
-                  name="video-url"
-                  type="url"
-                  inputMode="url"
-                  autoComplete="url"
-                  spellCheck={false}
-                  className="pl-9"
-                  value={url}
-                  onChange={(e) => setUrl(e.target.value)}
-                  placeholder={providerMeta.placeholder}
-                  aria-invalid={Boolean(error && !info)}
-                  aria-describedby={error ? "fetch-error" : undefined}
-                />
-              </div>
-              <Button type="submit" disabled={busy} size="lg">
-                {busy ? (
-                  <LoaderCircle
-                    aria-hidden="true"
-                    className="size-4 animate-spin motion-reduce:animate-none"
-                  />
-                ) : (
-                  <Search aria-hidden="true" className="size-4" />
-                )}
-                {busy ? <Trans>Fetching…</Trans> : <Trans>Fetch Video</Trans>}
-              </Button>
-            </div>
+            <InputGroup className="h-auto min-h-28 bg-white/70">
+              <InputGroupTextarea
+                ref={urlRef}
+                id="video-url"
+                name="video-url"
+                inputMode="url"
+                autoComplete="url"
+                spellCheck={false}
+                rows={3}
+                className="min-h-20 field-sizing-content px-2.5 text-sm md:text-sm"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+                    e.preventDefault();
+                    e.currentTarget.form?.requestSubmit();
+                  }
+                }}
+                placeholder={providerMeta.placeholder}
+                aria-invalid={Boolean(error && !info)}
+                aria-describedby={error ? "fetch-error" : undefined}
+              />
+              <InputGroupAddon
+                align="block-end"
+                className="justify-end border-t"
+              >
+                <InputGroupButton
+                  type="submit"
+                  variant="default"
+                  size="sm"
+                  disabled={busy}
+                  className="h-8 px-3"
+                >
+                  {busy ? (
+                    <LoaderCircle
+                      aria-hidden="true"
+                      className="size-4 animate-spin motion-reduce:animate-none"
+                    />
+                  ) : (
+                    <Search aria-hidden="true" className="size-4" />
+                  )}
+                  {busy ? (
+                    <Trans>Looking up…</Trans>
+                  ) : (
+                    <Trans>Get video</Trans>
+                  )}
+                </InputGroupButton>
+              </InputGroupAddon>
+            </InputGroup>
           </div>
 
-          <div className="space-y-2 rounded-lg border border-border bg-background/80 p-3">
+          <div className="space-y-2 rounded-lg border border-border bg-white/70 p-3 backdrop-blur-sm">
             <div className="flex items-center justify-between gap-2">
               <Label
                 htmlFor="provider-session"
                 className="flex items-center gap-2 text-muted-foreground"
               >
                 <Cookie aria-hidden="true" className="size-4" />
-                <Trans>{providerMeta.name} Session</Trans>
+                <Trans>{providerMeta.name} login</Trans>
               </Label>
               <Button
                 type="button"
@@ -326,8 +343,8 @@ export function DownloadForm({
                 disabled={loadingSessions}
                 aria-label={
                   loadingSessions
-                    ? t`Refreshing browser sessions`
-                    : t`Refresh browser sessions`
+                    ? t`Refreshing browser logins`
+                    : t`Refresh browser logins`
                 }
               >
                 <RefreshCw
@@ -348,15 +365,15 @@ export function DownloadForm({
             {loadingSessions ? (
               <p className="text-xs text-muted-foreground" aria-live="polite">
                 <Trans>
-                  Scanning local browsers for {providerMeta.name} logins…
+                  Looking for {providerMeta.name} logins in your browsers…
                 </Trans>
               </p>
             ) : sessions.length === 0 ? (
               <p className="text-xs text-muted-foreground">
                 <Trans>
-                  No logged-in {providerMeta.name} sessions found. Sign in to{" "}
+                  No {providerMeta.name} login found. Sign in to{" "}
                   {providerMeta.name} in Chrome, Safari, Firefox, or another
-                  supported browser, then refresh.
+                  supported browser, then hit Refresh.
                 </Trans>
               </p>
             ) : (
@@ -376,7 +393,7 @@ export function DownloadForm({
                   <SelectTrigger
                     id="provider-session"
                     className="w-full"
-                    aria-label={t`${providerMeta.name} session browser`}
+                    aria-label={t`${providerMeta.name} login browser`}
                   >
                     <SelectValue />
                   </SelectTrigger>
@@ -391,10 +408,10 @@ export function DownloadForm({
                 {cookieMode === "browser" && cookieBrowserId ? (
                   <p className="text-xs text-muted-foreground">
                     <Trans>
-                      Uses the {providerMeta.name} login from {selectedLabel}.
-                      macOS may ask for Keychain access; closing the browser
-                      first can help. If downloads fail with an expired session,
-                      sign in again in that browser and refresh.
+                      Uses your {providerMeta.name} login from {selectedLabel}.
+                      On macOS, Keychain may ask for permission; closing the
+                      browser first often helps. If downloads fail because the
+                      login expired, sign in again there and hit Refresh.
                     </Trans>
                   </p>
                 ) : null}
@@ -428,34 +445,34 @@ export function DownloadForm({
             <div className="space-y-4">
               <div>
                 <h2 className="text-base font-semibold text-pretty">
-                  <Trans>Ready to Download</Trans>
+                  <Trans>Ready to download</Trans>
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground">
                   <Trans>
-                    Pick quality and a save folder, then start the download.
+                    Pick a quality and folder, then start the download.
                   </Trans>
                 </p>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-[160px_1fr]">
+              <div className="flex gap-4">
                 {info.thumbnail ? (
                   <img
                     src={info.thumbnail}
                     alt=""
                     width={160}
                     height={90}
-                    className="aspect-video w-full rounded-xl object-cover md:h-full"
+                    className="aspect-video h-[90px] w-40 shrink-0 rounded-xl object-cover"
                   />
                 ) : (
                   <div
-                    className="flex aspect-video items-center justify-center rounded-xl bg-accent text-sm text-primary"
+                    className="flex aspect-video h-[90px] w-40 shrink-0 items-center justify-center rounded-xl bg-accent text-sm text-primary"
                     aria-hidden="true"
                   >
                     <Trans>No thumbnail</Trans>
                   </div>
                 )}
 
-                <div className="min-w-0 space-y-3">
+                <div className="min-w-0 flex-1 space-y-3">
                   <div>
                     <h3
                       className="text-lg font-semibold text-pretty break-words"
@@ -501,7 +518,12 @@ export function DownloadForm({
                   </div>
 
                   <div className="flex flex-wrap gap-2">
-                    <Button type="button" variant="outline" onClick={pickFolder}>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="bg-white hover:bg-white/90"
+                      onClick={pickFolder}
+                    >
                       <FolderOpen aria-hidden="true" className="size-4" />
                       {outputDir ? (
                         <Trans>Change Folder</Trans>
@@ -524,7 +546,7 @@ export function DownloadForm({
                       {submitting ? (
                         <Trans>Starting…</Trans>
                       ) : (
-                        <Trans>Start Download</Trans>
+                        <Trans>Download</Trans>
                       )}
                     </Button>
                   </div>
@@ -546,9 +568,7 @@ export function DownloadForm({
                     </p>
                   ) : (
                     <p className="text-xs text-muted-foreground">
-                      <Trans>
-                        Choose a folder before starting the download.
-                      </Trans>
+                      <Trans>Choose a folder first.</Trans>
                     </p>
                   )}
                 </div>
