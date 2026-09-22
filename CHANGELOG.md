@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0](https://github.com/celluloid-camp/desktop/compare/v1.5.0...v1.6.0) (2026-09-20)
+
+
+### Features
+
+* add update progress dialog and macOS check-for-updates menu ([1ca546d](https://github.com/celluloid-camp/desktop/commit/1ca546d54ce6553792322fa6d4abc9b0f3ce3138))
+
 ## [1.5.0](https://github.com/celluloid-camp/desktop/compare/v1.4.0...v1.5.0) (2026-09-20)
 
 
