@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    celluloid_desktop_lib::run()
+    celluloid_downloader_lib::run()
 }

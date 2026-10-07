@@ -436,8 +436,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "celluloid-desktop"
-version = "1.4.0"
+name = "celluloid-downloader"
+version = "1.6.0"
 dependencies = [
  "dirs 7.0.0",
  "objc2-app-kit",

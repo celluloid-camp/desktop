@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Celluloid Desktop\n"
+"Project-Id-Version: Celluloid Downloader\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
@@ -63,8 +63,8 @@ msgid "Cancel this update download?"
 msgstr "Annuler ce téléchargement de mise à jour ?"
 
 #: src/app/HomeGrid.tsx
-msgid "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Desktop."
-msgstr "Celluloid n’a pas trouvé les outils pour enregistrer des vidéos. Redémarrez l’application. Si ça ne change rien, réinstallez Celluloid Desktop."
+msgid "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Downloader."
+msgstr "Celluloid n’a pas trouvé les outils pour enregistrer des vidéos. Redémarrez l’application. Si ça ne change rien, réinstallez Celluloid Downloader."
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Change Folder"
@@ -358,8 +358,8 @@ msgstr "Utilise votre connexion {0} de {selectedLabel}. Sur macOS, le Trousseau 
 
 #. placeholder {0}: state.version
 #: src/features/update/UpdateProgressDialog.tsx
-msgid "Version {0} is installed. Restart Celluloid Desktop to finish."
-msgstr "La version {0} est installée. Redémarrez Celluloid Desktop pour terminer."
+msgid "Version {0} is installed. Restart Celluloid Downloader to finish."
+msgstr "La version {0} est installée. Redémarrez Celluloid Downloader pour terminer."
 
 #: src/features/download/components/ProviderTabs.tsx
 msgid "Video site"

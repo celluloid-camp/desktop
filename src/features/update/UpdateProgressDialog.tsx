@@ -104,8 +104,8 @@ export function UpdateProgressDialog() {
               (state.error ?? <Trans>Something went wrong.</Trans>)
             ) : state.phase === "ready" ? (
               <Trans>
-                Version {state.version} is installed. Restart Celluloid Desktop
-                to finish.
+                Version {state.version} is installed. Restart Celluloid
+                Downloader to finish.
               </Trans>
             ) : (
               <Trans>Downloading version {state.version}.</Trans>

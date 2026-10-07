@@ -36,7 +36,7 @@ export async function checkAndInstallUpdate(options?: {
     if (!update) {
       if (!silentIfUpToDate) {
         await message("You're on the latest version.", {
-          title: "Celluloid Desktop",
+          title: "Celluloid Downloader",
           kind: "info",
         });
       }

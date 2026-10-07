@@ -1,16 +1,16 @@
-# Celluloid Desktop
+# Celluloid Downloader
 
 Desktop app for [Celluloid](https://celluloid.me) to work with videos, download and upload on major platforms like YouTube, Dailymotion, Vimeo, and Vevo.
 
 ## Download
 
-![Download for macOS](assets/badges/macos.svg)
-![Download for Windows](assets/badges/windows.svg)
-![Download for Linux](assets/badges/linux.svg)
+[<img src="assets/badges/macos.svg" alt="Download for macOS" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest/download/Celluloid.Downloader-macos-aarch64.dmg)
+[<img src="assets/badges/windows.svg" alt="Download for Windows" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest/download/Celluloid.Downloader-windows-x64-setup.exe)
+[<img src="assets/badges/linux.svg" alt="Download for Linux" height="66" />](https://github.com/celluloid-camp/desktop/releases/latest/download/Celluloid.Downloader-linux-amd64.AppImage)
 
 ## Screenshot
 
-![Celluloid Desktop screenshot](assets/screenshot.png)
+![Celluloid Downloader screenshot](assets/screenshot.png)
 
 ## Stack
 
@@ -38,6 +38,17 @@ pnpm sidecars:fetch -- --from-path
 - `pnpm dev` — web frontend only
 - `pnpm sidecars:fetch` — download yt-dlp + ffmpeg for the host triple
 - `pnpm build` — typecheck + frontend build
-- `pnpm lingui:extract` — update `en` / `fr` catalogs after changing UI strings
-- `pnpm typecheck` / `pnpm lint` / `pnpm format` / `pnpm check`
+- `pnpm tauri build` — package the desktop app
 
+## Internationalization
+
+UI strings use [Lingui](https://lingui.dev/) (`en` / `fr`). The app picks the desktop language (`navigator.languages`) and falls back to English.
+
+```bash
+pnpm lingui:extract   # update catalogs after changing strings
+pnpm lingui:compile   # compile .po → runtime messages
+```
+
+## Releases
+
+GitHub Releases publish signed builds. macOS builds use Developer ID + notarization. The in-app updater reads `latest.json` from the latest release.

@@ -80,7 +80,7 @@ export function HomeGrid({ onSelect }: HomeGridProps) {
             <Trans>
               Celluloid couldn’t find the tools it needs to save videos.
               Restart the app. If that doesn’t help, reinstall Celluloid
-              Desktop.
+              Downloader.
             </Trans>
           </AlertDescription>
         </Alert>

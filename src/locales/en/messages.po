@@ -63,8 +63,8 @@ msgid "Cancel this update download?"
 msgstr "Cancel this update download?"
 
 #: src/app/HomeGrid.tsx
-msgid "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Desktop."
-msgstr "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Desktop."
+msgid "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Downloader."
+msgstr "Celluloid couldn’t find the tools it needs to save videos. Restart the app. If that doesn’t help, reinstall Celluloid Downloader."
 
 #: src/features/download/components/DownloadForm.tsx
 msgid "Change Folder"
@@ -358,8 +358,8 @@ msgstr "Uses your {0} login from {selectedLabel}. On macOS, Keychain may ask for
 
 #. placeholder {0}: state.version
 #: src/features/update/UpdateProgressDialog.tsx
-msgid "Version {0} is installed. Restart Celluloid Desktop to finish."
-msgstr "Version {0} is installed. Restart Celluloid Desktop to finish."
+msgid "Version {0} is installed. Restart Celluloid Downloader to finish."
+msgstr "Version {0} is installed. Restart Celluloid Downloader to finish."
 
 #: src/features/download/components/ProviderTabs.tsx
 msgid "Video site"

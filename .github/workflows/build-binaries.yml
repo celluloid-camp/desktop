@@ -22,19 +22,19 @@ jobs:
           - platform: macos-latest
             rust_target: aarch64-apple-darwin
             args: --target aarch64-apple-darwin
-            stable_name: Celluloid.Desktop-macos-aarch64.dmg
+            stable_name: Celluloid.Downloader-macos-aarch64.dmg
           - platform: macos-latest
             rust_target: x86_64-apple-darwin
             args: --target x86_64-apple-darwin
-            stable_name: Celluloid.Desktop-macos-x64.dmg
+            stable_name: Celluloid.Downloader-macos-x64.dmg
           - platform: ubuntu-22.04
             rust_target: x86_64-unknown-linux-gnu
             args: ""
-            stable_name: Celluloid.Desktop-linux-amd64.AppImage
+            stable_name: Celluloid.Downloader-linux-amd64.AppImage
           - platform: windows-latest
             rust_target: x86_64-pc-windows-msvc
             args: ""
-            stable_name: Celluloid.Desktop-windows-x64-setup.exe
+            stable_name: Celluloid.Downloader-windows-x64-setup.exe
 
     runs-on: ${{ matrix.platform }}
 
@@ -140,7 +140,7 @@ jobs:
           APPLE_API_KEY_PATH: ${{ env.APPLE_API_KEY_PATH }}
         with:
           tagName: ${{ steps.meta.outputs.tag_name }}
-          releaseName: Celluloid Desktop ${{ steps.meta.outputs.tag_name }}
+          releaseName: Celluloid Downloader ${{ steps.meta.outputs.tag_name }}
           releaseDraft: false
           prerelease: false
           args: ${{ matrix.args }}
@@ -164,7 +164,7 @@ jobs:
               SRC="$(find src-tauri/target -type f -name '*setup.exe' | head -n 1 || true)"
               if [ -z "$SRC" ]; then
                 SRC="$(find src-tauri/target -type f -name '*.msi' | head -n 1 || true)"
-                NAME="Celluloid.Desktop-windows-x64.msi"
+                NAME="Celluloid.Downloader-windows-x64.msi"
               fi
               ;;
           esac

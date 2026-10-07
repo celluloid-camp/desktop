@@ -17,7 +17,7 @@ pub fn install_app_menu<R: Runtime>(app: &App<R>) -> tauri::Result<()> {
         None::<&str>,
     )?;
 
-    let app_menu = SubmenuBuilder::new(app, "Celluloid Desktop")
+    let app_menu = SubmenuBuilder::new(app, "Celluloid Downloader")
         .about(None)
         .separator()
         .item(&check_updates)
